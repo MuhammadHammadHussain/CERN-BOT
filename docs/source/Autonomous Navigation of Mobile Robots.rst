@@ -47,7 +47,7 @@ Algorithm Comparison Table
 All three algorithms were tested in a controlled environment with the following parameters:
 
 +-------------+----------------------+------------------------+------------------+
-| Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored   |
+| Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
 +=============+======================+========================+==================+
 | A*          | 23.54–27.88          | 24.18–493.01           | 341–461          |
 +-------------+----------------------+------------------------+------------------+
@@ -60,9 +60,12 @@ A* offers the best balance for this application, with Dijkstra being slower and 
 
 Python API
 -------
+
 Classes
 ^^^^^^^
+
 Each algorithm is implemented as a ROS node class:
+
 - **AStarNode**: Handles path planning using the A* algorithm.
 - **DijkstraNode**: Implements Dijkstra’s algorithm for shortest path computation.
 - **RRTNode**: Executes the RRT algorithm for sampling-based path planning.
@@ -80,8 +83,10 @@ The following functions are defined within the ROS node classes to facilitate th
 
 Python Examples
 -----------------
+
 A* Algorithm
 ^^^^^^^^^^^^
+
 .. code-block:: python
 
    import heapq
@@ -105,6 +110,7 @@ A* Algorithm
 
 Dijkstra’s Algorithm
 ^^^^^^^^^^^^^
+
 .. code-block:: python
    import heapq
    def dijkstra(start, goal, grid):
@@ -126,6 +132,7 @@ Dijkstra’s Algorithm
 
 RRT Algorithm
 ^^^^^^^^^^^^^
+
 .. code-block:: python
    import random
    def rrt(start, goal, grid, max_iter=1000):
