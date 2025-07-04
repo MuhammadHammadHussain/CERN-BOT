@@ -35,13 +35,13 @@ Algorithms are first validated in Gazebo simulation before real-world deployment
 Algorithms and Their Logic
 ----------------
 The autonomous navigation system employs a combination of algorithms for localization, mapping, and path planning. The key algorithms include:
-* **A* (A-star)**: Informed search algorithm using a heuristic to efficiently find the shortest path. Balances optimality and computational efficiency.
-* **Dijkstra’s Algorithm**: Guarantees the shortest path but explores all nodes equally, leading to higher computation time.
-* **RRT (Rapidly-exploring Random Tree)**: Sampling-based method suitable for complex spaces; finds feasible but often suboptimal paths and is computationally intensive.
+- **A* (A-star)**: Informed search algorithm using a heuristic to efficiently find the shortest path. Balances optimality and computational efficiency.
+- **Dijkstra’s Algorithm**: Guarantees the shortest path but explores all nodes equally, leading to higher computation time.
+- **RRT (Rapidly-exploring Random Tree)**: Sampling-based method suitable for complex spaces; finds feasible but often suboptimal paths and is computationally intensive.
 
 Algorithm Comparison Table
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-
+All three algorithms were tested in a controlled environment with the following parameters:
 +-------------+----------------------+------------------------+------------------+
 | Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored   |
 +=============+======================+========================+==================+
@@ -64,8 +64,10 @@ Each algorithm is implemented as a ROS node class:
 - **RRTNode**: Executes the RRT algorithm for sampling-based path planning.
 
 These classes inherit from the ROS node base class and interact with ROS topics and services for receiving map data, publishing planned paths, and responding to navigation requests.
+
 Functions
 ^^^^^^^
+The following functions are defined within the ROS node classes to facilitate the autonomous navigation process:
 - **plan_path(start, goal, map)**: Computes the path from start to goal.
 - **update_map(sensor_data)**: Updates the occupancy grid using LiDAR and odometry.
 - **publish_path(path)**: Publishes the computed path to a ROS topic.
@@ -96,6 +98,7 @@ A* Algorithm
                   f_score = tentative_g + heuristic(neighbor, goal)
                   heapq.heappush(open_set, (f_score, neighbor))
    return None
+
 Dijkstra’s Algorithm
 ^^^^^^^^^^^^^
 .. code-block:: python
@@ -116,6 +119,7 @@ Dijkstra’s Algorithm
                   came_from[neighbor] = current
                   heapq.heappush(queue, (new_dist, neighbor))
    return None
+
 RRT Algorithm
 ^^^^^^^^^^^^^
 .. code-block:: python
@@ -132,4 +136,5 @@ RRT Algorithm
                   tree[goal] = new_point
                   return reconstruct_path(tree, goal)
    return None
+
 These examples illustrate the core logic of each algorithm, focusing on pathfinding and grid navigation. The actual implementation in the ROS nodes includes additional functionality for integration with the robot's sensors and actuators.
