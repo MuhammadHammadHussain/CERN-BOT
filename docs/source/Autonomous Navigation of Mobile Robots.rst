@@ -96,7 +96,6 @@ A* Algorithm
                   f_score = tentative_g + heuristic(neighbor, goal)
                   heapq.heappush(open_set, (f_score, neighbor))
    return None
-
 Dijkstra’s Algorithm
 ^^^^^^^^^^^^^
 .. code-block:: python
@@ -117,7 +116,6 @@ Dijkstra’s Algorithm
                   came_from[neighbor] = current
                   heapq.heappush(queue, (new_dist, neighbor))
       return None
-
 RRT Algorithm
 ^^^^^^^^^^^^^
 .. code-block:: python
