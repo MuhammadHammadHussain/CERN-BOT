@@ -9,9 +9,9 @@ Robot Description
 
 The key components of the robot which are relevant for this project include:
 
-   • **LiDAR Sensor**: Used for real-time environment scanning and mapping.
-   • **Wheel Odometry**:P rovides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
-   • **Custom D-Bot Platform**: Initial testing and development were performed on a custom-built D-Bot at Aalto University, with the intention to transfer the solution to CERN’s main robot.
+- **LiDAR Sensor**: Used for real-time environment scanning and mapping.
+- **Wheel Odometry**:P rovides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
+- **Custom D-Bot Platform**: Initial testing and development were performed on a custom-built D-Bot at Aalto University, with the intention to transfer the solution to CERN’s main robot.
 
 CERN Facility
 ------------
@@ -35,9 +35,9 @@ Algorithms are first validated in Gazebo simulation before real-world deployment
 Algorithms and Their Logic
 ----------------
 The autonomous navigation system employs a combination of algorithms for localization, mapping, and path planning. The key algorithms include:
-* **A* (A-star)**: Informed search algorithm using a heuristic to efficiently find the shortest path. Balances optimality and computational efficiency.
-* **Dijkstra’s Algorithm**: Guarantees the shortest path but explores all nodes equally, leading to higher computation time.
-* **RRT (Rapidly-exploring Random Tree)**: Sampling-based method suitable for complex spaces; finds feasible but often suboptimal paths and is computationally intensive.
+   * **A* (A-star)**: Informed search algorithm using a heuristic to efficiently find the shortest path. Balances optimality and computational efficiency.
+   * **Dijkstra’s Algorithm**: Guarantees the shortest path but explores all nodes equally, leading to higher computation time.
+   * **RRT (Rapidly-exploring Random Tree)**: Sampling-based method suitable for complex spaces; finds feasible but often suboptimal paths and is computationally intensive.
 .. code-block:: console
 
    (.venv) $ pip install lumache
