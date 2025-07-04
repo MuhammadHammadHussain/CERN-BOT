@@ -109,7 +109,7 @@ A* Algorithm
                      heapq.heappush(open_set, (f_score, neighbor))
       return None
 
-Dijkstra’s Algorithm
+Dijkstra Algorithm
 ^^^^^^^^^^^^^
 
    .. code-block:: python
