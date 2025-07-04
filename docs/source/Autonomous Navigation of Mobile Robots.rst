@@ -115,21 +115,21 @@ Dijkstra’s Algorithm
                   distances[neighbor] = new_dist
                   came_from[neighbor] = current
                   heapq.heappush(queue, (new_dist, neighbor))
-      return None
+   return None
 RRT Algorithm
 ^^^^^^^^^^^^^
 .. code-block:: python
    import random
    def rrt(start, goal, grid, max_iter=1000):
-   tree = {start: None}
-   for _ in range(max_iter):
-      rand_point = random_point(grid)
-      nearest = nearest_node(rand_point, tree)
-      new_point = steer(nearest, rand_point)
-      if is_free(new_point, grid):
-            tree[new_point] = nearest
-            if distance(new_point, goal) < threshold:
-               tree[goal] = new_point
-               return reconstruct_path(tree, goal)
+      tree = {start: None}
+      for _ in range(max_iter):
+         rand_point = random_point(grid)
+         nearest = nearest_node(rand_point, tree)
+         new_point = steer(nearest, rand_point)
+         if is_free(new_point, grid):
+               tree[new_point] = nearest
+               if distance(new_point, goal) < threshold:
+                  tree[goal] = new_point
+                  return reconstruct_path(tree, goal)
    return None
 These examples illustrate the core logic of each algorithm, focusing on pathfinding and grid navigation. The actual implementation in the ROS nodes includes additional functionality for integration with the robot's sensors and actuators.
