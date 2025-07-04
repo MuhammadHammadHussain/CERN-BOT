@@ -74,6 +74,7 @@ These classes inherit from the ROS node base class and interact with ROS topics 
 
 Functions
 ^^^^^^^
+.. no spaces between the headings and the text results in error in the documentation.
 
 The following functions are defined within the ROS node classes to facilitate the autonomous navigation process:
 - **plan_path(start, goal, map)**: Computes the path from start to goal.
@@ -111,7 +112,7 @@ A* Algorithm
 
 Dijkstra Algorithm
 ^^^^^^^^^^^^^^^^^^
-
+.. ^^^^^ this was not completely unde the dijkstra section resulting in error and no further codes are displayed.
 .. code-block:: python
 
     import heapq
