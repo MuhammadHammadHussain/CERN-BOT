@@ -74,6 +74,7 @@ These classes inherit from the ROS node base class and interact with ROS topics 
 
 Functions
 ^^^^^^^
+
 The following functions are defined within the ROS node classes to facilitate the autonomous navigation process:
 - **plan_path(start, goal, map)**: Computes the path from start to goal.
 - **update_map(sensor_data)**: Updates the occupancy grid using LiDAR and odometry.
@@ -87,65 +88,65 @@ Python Examples
 A* Algorithm
 ^^^^^^^^^^^^
 
-.. code-block:: python
+   .. code-block:: python
 
-   import heapq
-   def astar(start, goal, grid):
-      open_set = []
-      heapq.heappush(open_set, (0, start))
-      came_from = {}
-      g_score = {start: 0}
-      while open_set:
-         _, current = heapq.heappop(open_set)
-         if current == goal:
-               return reconstruct_path(came_from, current)
-         for neighbor in get_neighbors(current, grid):
-               tentative_g = g_score[current] + 1
-               if neighbor not in g_score or tentative_g < g_score[neighbor]:
-                  came_from[neighbor] = current
-                  g_score[neighbor] = tentative_g
-                  f_score = tentative_g + heuristic(neighbor, goal)
-                  heapq.heappush(open_set, (f_score, neighbor))
-   return None
+      import heapq
+      def astar(start, goal, grid):
+         open_set = []
+         heapq.heappush(open_set, (0, start))
+         came_from = {}
+         g_score = {start: 0}
+         while open_set:
+            _, current = heapq.heappop(open_set)
+            if current == goal:
+                  return reconstruct_path(came_from, current)
+            for neighbor in get_neighbors(current, grid):
+                  tentative_g = g_score[current] + 1
+                  if neighbor not in g_score or tentative_g < g_score[neighbor]:
+                     came_from[neighbor] = current
+                     g_score[neighbor] = tentative_g
+                     f_score = tentative_g + heuristic(neighbor, goal)
+                     heapq.heappush(open_set, (f_score, neighbor))
+      return None
 
 Dijkstra’s Algorithm
 ^^^^^^^^^^^^^
 
-.. code-block:: python
-   import heapq
-   def dijkstra(start, goal, grid):
-      queue = []
-      heapq.heappush(queue, (0, start))
-      distances = {start: 0}
-      came_from = {}
-      while queue:
-         dist, current = heapq.heappop(queue)
-         if current == goal:
-               return reconstruct_path(came_from, current)
-         for neighbor in get_neighbors(current, grid):
-               new_dist = dist + 1
-               if neighbor not in distances or new_dist < distances[neighbor]:
-                  distances[neighbor] = new_dist
-                  came_from[neighbor] = current
-                  heapq.heappush(queue, (new_dist, neighbor))
-   return None
+   .. code-block:: python
+      import heapq
+      def dijkstra(start, goal, grid):
+         queue = []
+         heapq.heappush(queue, (0, start))
+         distances = {start: 0}
+         came_from = {}
+         while queue:
+            dist, current = heapq.heappop(queue)
+            if current == goal:
+                  return reconstruct_path(came_from, current)
+            for neighbor in get_neighbors(current, grid):
+                  new_dist = dist + 1
+                  if neighbor not in distances or new_dist < distances[neighbor]:
+                     distances[neighbor] = new_dist
+                     came_from[neighbor] = current
+                     heapq.heappush(queue, (new_dist, neighbor))
+      return None
 
 RRT Algorithm
 ^^^^^^^^^^^^^
 
-.. code-block:: python
-   import random
-   def rrt(start, goal, grid, max_iter=1000):
-      tree = {start: None}
-      for _ in range(max_iter):
-         rand_point = random_point(grid)
-         nearest = nearest_node(rand_point, tree)
-         new_point = steer(nearest, rand_point)
-         if is_free(new_point, grid):
-               tree[new_point] = nearest
-               if distance(new_point, goal) < threshold:
-                  tree[goal] = new_point
-                  return reconstruct_path(tree, goal)
-   return None
+   .. code-block:: python
+      import random
+      def rrt(start, goal, grid, max_iter=1000):
+         tree = {start: None}
+         for _ in range(max_iter):
+            rand_point = random_point(grid)
+            nearest = nearest_node(rand_point, tree)
+            new_point = steer(nearest, rand_point)
+            if is_free(new_point, grid):
+                  tree[new_point] = nearest
+                  if distance(new_point, goal) < threshold:
+                     tree[goal] = new_point
+                     return reconstruct_path(tree, goal)
+      return None
 
 These examples illustrate the core logic of each algorithm, focusing on pathfinding and grid navigation. The actual implementation in the ROS nodes includes additional functionality for integration with the robot's sensors and actuators.
