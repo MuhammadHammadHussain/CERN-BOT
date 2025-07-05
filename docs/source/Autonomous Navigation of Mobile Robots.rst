@@ -14,7 +14,7 @@ Robot Description
 The key components of the robot which are relevant for this project include:
 
 - **LiDAR Sensor**: Used for real-time environment scanning and mapping.
-- **Wheel Odometry**:Provides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
+- **Wheel Odometry**: Provides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
 - **Custom D-Bot Platform**: Initial testing and development were performed on a custom-built D-Bot at Aalto University, with the intention to transfer the solution to CERN’s main robot.
 
 ROS and Its Libraries
@@ -49,7 +49,7 @@ All three algorithms were tested in a controlled simulated environment using Gaz
 .. for table to remain centered, different code structure should be used.
 
 +-------------+----------------------+------------------------+------------------+
-| Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
+| Algorithm   | Path Length (m)      | Computation Time (ms)  | Nodes Explored   |
 +=============+======================+========================+==================+
 | A*          | 23.54–27.88          | 24.18–493.01           | 341–461          |
 +-------------+----------------------+------------------------+------------------+
