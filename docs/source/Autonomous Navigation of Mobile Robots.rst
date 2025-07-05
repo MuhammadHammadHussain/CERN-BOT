@@ -46,10 +46,8 @@ Algorithm Comparison Table
 
 All three algorithms were tested in a controlled simulated environment using Gazebo for different 2D occupancy maps which results in following parameters while navigation from Point A to Point B i.e. from start to end:
 
-.. for table to remain centered, no spaces between the headings and the text.
-.. table:: Algorithm Comparison Results
-   :align: center
-   :widths: auto
+.. for table to remain centered, different code structure should be used.
+
 +-------------+----------------------+------------------------+------------------+
 | Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
 +=============+======================+========================+==================+
