@@ -11,13 +11,6 @@ The robot operates in a radiation facility at CERN, where human presence is limi
 Robot Description
 ^^^^^^^^^^^^^^^
 
-.. figure:: Images/D_Bot_Image.png
-    :alt: Custom-built D-Bot at Aalto University
-    :width: 40%
-    :align: center
-
-    Custom-built D-Bot at Aalto University
-
 The key components of the robot which are relevant for this project include:
 
 - **LiDAR Sensor**: Used for real-time environment scanning and mapping.
@@ -51,7 +44,7 @@ The autonomous navigation system employs a combination of algorithms for localiz
 Algorithm Comparison Table
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All three algorithms were tested in a controlled simulated environment using Gazebo which results in following parameters while navigation from Point A to Point B i.e. from start to end as shared in figure above:
+All three algorithms were tested in a controlled simulated environment using Gazebo for different 2D occupancy maps which results in following parameters while navigation from Point A to Point B i.e. from start to end:
 
 +-------------+----------------------+------------------------+------------------+
 | Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
@@ -96,67 +89,106 @@ Python Examples
 A* Algorithm
 ^^^^^^^^^^^^
 
-.. code-block:: python
+.. code-block:: none
 
-    import heapq
-    def astar(start, goal, grid):
-        open_set = []
-        heapq.heappush(open_set, (0, start))
-        came_from = {}
-        g_score = {start: 0}
-        while open_set:
-            _, current = heapq.heappop(open_set)
-            if current == goal:
-                return reconstruct_path(came_from, current)
-            for neighbor in get_neighbors(current, grid):
-                tentative_g = g_score[current] + 1
-                if neighbor not in g_score or tentative_g < g_score[neighbor]:
-                    came_from[neighbor] = current
-                    g_score[neighbor] = tentative_g
-                    f_score = tentative_g + heuristic(neighbor, goal)
-                    heapq.heappush(open_set, (f_score, neighbor))
-    return None
+   function A_Star(startNode, goalNode, heuristicFunction)
+      nodesToExplore = {startNode}
+      bestPathMap = {}
+      costFromStart = {startNode: 0}
+      estimatedTotalCost = {startNode: heuristicFunction(startNode)}  // f = g + h
+
+      while nodesToExplore is not empty:
+         currentNode = node in nodesToExplore with lowest estimatedTotalCost value
+
+         if currentNode == goalNode:
+               return reconstruct_path(bestPathMap, currentNode)  // Path found!
+
+         nodesToExplore.remove(currentNode)
+
+         for each neighborNode of currentNode:
+               pathCost = costFromStart[currentNode] + distance(currentNode, neighborNode)
+
+               if pathCost < costFromStart.get(neighborNode, Infinity):
+                  bestPathMap[neighborNode] = currentNode
+                  costFromStart[neighborNode] = pathCost
+                  estimatedTotalCost[neighborNode] = pathCost + heuristicFunction(neighborNode)
+
+                  if neighborNode not in nodesToExplore:
+                     nodesToExplore.add(neighborNode)
+
 
 Dijkstra Algorithm
 ^^^^^^^^^^^^^^^^^^
 .. ^^^^^ this was not completely unde the dijkstra section resulting in error and no further codes are displayed.
-.. code-block:: python
+.. code-block:: none
 
-    import heapq
-    def dijkstra(start, goal, grid):
-        queue = []
-        heapq.heappush(queue, (0, start))
-        distances = {start: 0}
-        came_from = {}
-        while queue:
-            dist, current = heapq.heappop(queue)
-            if current == goal:
-                return reconstruct_path(came_from, current)
-            for neighbor in get_neighbors(current, grid):
-                new_dist = dist + 1
-                if neighbor not in distances or new_dist < distances[neighbor]:
-                    distances[neighbor] = new_dist
-                    came_from[neighbor] = current
-                    heapq.heappush(queue, (new_dist, neighbor))
-    return None
+   function Dijkstra(startNode, goalNode, distanceFunction)
+      nodesToExplore = {startNode}         // Set of nodes to be evaluated
+      bestPathMap = {}                     // Maps each node to its best previous node
+      costFromStart = {startNode: 0}       // Tracks shortest distance from startNode
+
+      while nodesToExplore is not empty:
+         currentNode = node in nodesToExplore with lowest costFromStart value
+
+         if currentNode == goalNode:
+               return reconstruct_path(bestPathMap, currentNode)  // Path found!
+
+         nodesToExplore.remove(currentNode)
+
+         for each neighborNode of currentNode:
+               pathCost = costFromStart[currentNode] + distanceFunction(currentNode, neighborNode)
+
+               if pathCost < costFromStart.get(neighborNode, Infinity):
+                  bestPathMap[neighborNode] = currentNode     // Update best path
+                  costFromStart[neighborNode] = pathCost
+
+                  if neighborNode not in nodesToExplore:
+                     nodesToExplore.add(neighborNode)
+
+      return failure  // No path found
+   function reconstruct_path(bestPathMap, goalNode)
+      shortestPath = [goalNode]
+      while goalNode in bestPathMap:
+         goalNode = bestPathMap[goalNode]
+         shortestPath.prepend(goalNode)  // Add previous node to the path
+      return shortestPath
 
 RRT Algorithm
 ^^^^^^^^^^^^^
 
-.. code-block:: python
+.. code-block:: none
 
-    import random
-    def rrt(start, goal, grid, max_iter=1000):
-        tree = {start: None}
-        for _ in range(max_iter):
-            rand_point = random_point(grid)
-            nearest = nearest_node(rand_point, tree)
-            new_point = steer(nearest, rand_point)
-            if is_free(new_point, grid):
-                tree[new_point] = nearest
-                if distance(new_point, goal) < threshold:
-                    tree[goal] = new_point
-                    return reconstruct_path(tree, goal)
-    return None
+   function RRT(startNode, goalNode, maxIterations, stepSize, obstacleChecker)
+      tree = {startNode}         // Initialize tree with start node
+      pathFound = false
+
+      for i = 1 to maxIterations:
+         randomNode = generateRandomNode()
+         nearestNode = findNearestNode(tree, randomNode)
+         newNode = extendTowards(nearestNode, randomNode, stepSize)
+
+         if not obstacleChecker(newNode):
+               continue  // Skip if node is invalid (collision)
+
+         tree.add(newNode)
+
+         if distance(newNode, goalNode) < stepSize:
+               tree.add(goalNode)
+               pathFound = true
+               break
+
+      if pathFound:
+         return reconstruct_path(tree, goalNode)
+      else:
+         return failure  // No path found
+   function reconstruct_path(tree, goalNode)
+      path = [goalNode]
+      currentNode = goalNode
+
+      while currentNode in tree:
+         currentNode = findParentNode(tree, currentNode)
+         path.prepend(currentNode)
+      return path
+
 
 These examples illustrate the core logic of each algorithm, focusing on pathfinding and grid navigation. The actual implementation in the ROS nodes includes additional functionality for integration with the robot's sensors and actuators.
