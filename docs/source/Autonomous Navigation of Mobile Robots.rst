@@ -46,17 +46,17 @@ Algorithm Comparison Table
 
 All three algorithms were tested in a controlled simulated environment using Gazebo for different 2D occupancy maps which results in following parameters while navigation from Point A to Point B i.e. from start to end:
 
-+-------------+----------------------+------------------------+------------------+
-| Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
-+=============+======================+========================+==================+
-| A*          | 23.54–27.88          | 24.18–493.01           | 341–461          |
-+-------------+----------------------+------------------------+------------------+
-| Dijkstra    | 21.92–23.75          | 306.67–1035.63         | 341–413          |
-+-------------+----------------------+------------------------+------------------+
-| RRT         | 22.46–35.17          | 3207.36–6275.46        | 23–32            |
-+-------------+----------------------+------------------------+------------------+
+               +-------------+----------------------+------------------------+------------------+
+               | Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
+               +=============+======================+========================+==================+
+               | A*          | 23.54–27.88          | 24.18–493.01           | 341–461          |
+               +-------------+----------------------+------------------------+------------------+
+               | Dijkstra    | 21.92–23.75          | 306.67–1035.63         | 341–413          |
+               +-------------+----------------------+------------------------+------------------+
+               | RRT         | 22.46–35.17          | 3207.36–6275.46        | 23–32            |
+               +-------------+----------------------+------------------------+------------------+
 
-A* offers the best balance for this application, with Dijkstra being slower and RRT less optimal for path quality
+A* offers the best balance for this application, with Dijkstra being slower and RRT less optimal for path quality which evident from the table above.
 
 Python API
 -------
@@ -74,6 +74,7 @@ These classes inherit from the ROS node base class and interact with ROS topics 
 
 Functions
 ^^^^^^^
+
 .. no spaces between the headings and the text results in error in the documentation.
 
 The following functions are defined within the ROS node classes to facilitate the autonomous navigation process:
