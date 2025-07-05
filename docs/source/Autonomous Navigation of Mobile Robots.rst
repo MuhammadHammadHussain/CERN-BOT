@@ -4,18 +4,25 @@ Introduction
 ------------
 The robot is designed to transport heavy loads within CERN radiation facilities, where human presence is hazardous due to high radiation levels. Previously, robots required continuous manual control and monitoring, making it impossible for operators to take breaks and leading to inefficiency and safety concerns. Autonomous navigation enables the robot to operate independently during signal loss or operator absence, improving safety, efficiency, and allowing short operator breaks.
 
+CERN Facility
+^^^^^^^^^^^^
+The robot operates in a radiation facility at CERN, where human presence is limited due to safety concerns. The environment is characterized by high radiation levels, which necessitates the use of autonomous systems for tasks that would otherwise require human intervention. Continuous monitoring is required due to radiation risks. Signal loss is common due to facility structure, necessitating autonomous fallback. The robot must navigate complex layouts, avoid obstacles, and maintain operational reliability 
+
 Robot Description
 ^^^^^^^^^^^^^^^
+
+.. figure:: D Bot image.png
+    :alt: Custom-built D-Bot at Aalto University
+    :width: 40%
+    :align: center
+
+    Custom-built D-Bot at Aalto University
 
 The key components of the robot which are relevant for this project include:
 
 - **LiDAR Sensor**: Used for real-time environment scanning and mapping.
 - **Wheel Odometry**:Provides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
 - **Custom D-Bot Platform**: Initial testing and development were performed on a custom-built D-Bot at Aalto University, with the intention to transfer the solution to CERN’s main robot.
-
-CERN Facility
-^^^^^^^^^^^^
-The robot operates in a radiation facility at CERN, where human presence is limited due to safety concerns. The environment is characterized by high radiation levels, which necessitates the use of autonomous systems for tasks that would otherwise require human intervention. Continuous monitoring is required due to radiation risks. Signal loss is common due to facility structure, necessitating autonomous fallback. The robot must navigate complex layouts, avoid obstacles, and maintain operational reliability 
 
 ROS and Its Libraries
 ----------------
@@ -44,7 +51,7 @@ The autonomous navigation system employs a combination of algorithms for localiz
 Algorithm Comparison Table
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All three algorithms were tested in a controlled environment with the following parameters:
+All three algorithms were tested in a controlled simulated environment using Gazebo which results in following parameters while navigation from Point A to Point B i.e. from start to end as shared in figure above:
 
 +-------------+----------------------+------------------------+------------------+
 | Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
