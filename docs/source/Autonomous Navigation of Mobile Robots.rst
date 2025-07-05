@@ -46,15 +46,19 @@ Algorithm Comparison Table
 
 All three algorithms were tested in a controlled simulated environment using Gazebo for different 2D occupancy maps which results in following parameters while navigation from Point A to Point B i.e. from start to end:
 
-               +-------------+----------------------+------------------------+------------------+
-               | Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
-               +=============+======================+========================+==================+
-               | A*          | 23.54–27.88          | 24.18–493.01           | 341–461          |
-               +-------------+----------------------+------------------------+------------------+
-               | Dijkstra    | 21.92–23.75          | 306.67–1035.63         | 341–413          |
-               +-------------+----------------------+------------------------+------------------+
-               | RRT         | 22.46–35.17          | 3207.36–6275.46        | 23–32            |
-               +-------------+----------------------+------------------------+------------------+
+.. for table to remain centered, no spaces between the headings and the text.
+.. table:: Algorithm Comparison Results
+   :align: center
+   :widths: auto
+   +-------------+----------------------+------------------------+------------------+
+   | Algorithm   | Path Length (m)      | Computation Time (ms) | Nodes Explored    |
+   +=============+======================+========================+==================+
+   | A*          | 23.54–27.88          | 24.18–493.01           | 341–461          |
+   +-------------+----------------------+------------------------+------------------+
+   | Dijkstra    | 21.92–23.75          | 306.67–1035.63         | 341–413          |
+   +-------------+----------------------+------------------------+------------------+
+   | RRT         | 22.46–35.17          | 3207.36–6275.46        | 23–32            |
+   +-------------+----------------------+------------------------+------------------+
 
 A* offers the best balance for this application, with Dijkstra being slower and RRT less optimal for path quality which evident from the table above.
 
@@ -78,6 +82,7 @@ Functions
 .. no spaces between the headings and the text results in error in the documentation.
 
 The following functions are defined within the ROS node classes to facilitate the autonomous navigation process:
+
 - **plan_path(start, goal, map)**: Computes the path from start to goal.
 - **update_map(sensor_data)**: Updates the occupancy grid using LiDAR and odometry.
 - **publish_path(path)**: Publishes the computed path to a ROS topic.
