@@ -11,7 +11,7 @@ The robot operates in a radiation facility at CERN, where human presence is limi
 Robot Description
 ^^^^^^^^^^^^^^^
 
-.. figure:: Images/D Bot Image.png
+.. figure:: Images/D_Bot_Image.png
     :alt: Custom-built D-Bot at Aalto University
     :width: 40%
     :align: center
