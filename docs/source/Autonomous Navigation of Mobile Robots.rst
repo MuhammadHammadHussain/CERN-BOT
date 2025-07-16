@@ -24,6 +24,7 @@ The robot utilizes the Robot Operating System (ROS) for its software framework, 
     :width: 400px
     :align: center
 
+    **Figure 1.** The Aalto D-Bot used for pathfinding experiments.
 
 Key ROS libraries and packages used include:
 
@@ -62,7 +63,34 @@ All three algorithms were tested in a controlled simulated environment using Gaz
 | RRT         | 22.46–35.17          | 3207.36–6275.46        | 23–32            |
 +-------------+----------------------+------------------------+------------------+
 
-A* offers the best balance for this application, with Dijkstra being slower and RRT less optimal for path quality which evident from the table above.
+A* offers the best balance for this application, with Dijkstra being slower and RRT less optimal for path quality which evident from the table above. All the maps and their path can be seen in the figures below.
+
+.. image:: /Images/DF_Cage_Map.png
+    :alt: D-Bot image
+    :width: 400px
+    :align: center
+
+    **Figure 2.**  Aalto Design Factory Cage Map.
+
+.. image:: /Images/CERN_Map_1.png
+    :alt: D-Bot image
+    :width: 400px
+    :align: center
+
+    **Figure 3.** CERN Facility Map 1.
+
+.. image:: /Images/CERN_Map_2.png
+    :alt: D-Bot image
+    :width: 400px
+    :align: center
+
+    **Figure 4.** CERN Facility Map 2.
+.. image:: /Images/CERN_Map_3.png
+    :alt: D-Bot image
+    :width: 400px
+    :align: center
+
+    **Figure 5.** CERN Facility Map 3.
 
 Python API
 -------
