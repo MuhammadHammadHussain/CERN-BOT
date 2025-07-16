@@ -2,16 +2,12 @@ Autonomous Navigation of Mobile Robots
 =====
 Introduction
 ------------
-The robot is designed to transport heavy loads within CERN radiation facilities, where human presence is hazardous due to high radiation levels. Previously, robots required continuous manual control and monitoring, making it impossible for operators to take breaks and leading to inefficiency and safety concerns. Autonomous navigation enables the robot to operate independently during signal loss or operator absence, improving safety, efficiency, and allowing short operator breaks.
-
-CERN Facility
-^^^^^^^^^^^^
-The robot operates in a radiation facility at CERN, where human presence is limited due to safety concerns. The environment is characterized by high radiation levels, which necessitates the use of autonomous systems for tasks that would otherwise require human intervention. Continuous monitoring is required due to radiation risks. Signal loss is common due to facility structure, necessitating autonomous fallback. The robot must navigate complex layouts, avoid obstacles, and maintain operational reliability 
+The robot is designed to transport heavy loads within CERN’s radiation facilities, where human presence is hazardous due to high radiation levels. Previously, robots were operated via teleoperation, but it posed several challenges, including operator fatigue, camera latency, and delayed control response. Continuous manual control made it difficult for operators to take breaks, leading to inefficiency and safety concerns. Introducing autonomous navigation allows the robot to operate independently during signal loss or operator absence, improving overall safety, efficiency, and enabling short breaks for human operators.
 
 Robot Description
 ^^^^^^^^^^^^^^^
 
-The key components of the robot which are relevant for this project include:
+At CERN, radiation survey robots are tasked with monitoring and transporting equipment in restricted zones. Additionally, there is a separate robot platform called D-Bot, developed at Aalto University, which is used for research, development, and testing of autonomous functionalities. The D-Bot is a custom-built mobile robot designed to replicate key operational conditions in a controlled environment. It is equipped with all the essential sensors and control systems needed to simulate and validate navigation and mapping before they are deployed in the real world. The key components of the robot which are relevant for this project include:
 
 - **LiDAR Sensor**: Used for real-time environment scanning and mapping.
 - **Wheel Odometry**: Provides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
@@ -20,6 +16,12 @@ The key components of the robot which are relevant for this project include:
 ROS and Its Libraries
 ----------------
 The robot utilizes the Robot Operating System (ROS) for its software framework, which provides essential libraries and tools for building robot applications. ROS facilitates communication between different components of the robot, enabling efficient data exchange and control.
+
+.. image:: Images\D_Bot_Image.png
+    :alt: D-Bot image
+    :width: 400px
+    :align: center
+
 
 Key ROS libraries and packages used include:
 
