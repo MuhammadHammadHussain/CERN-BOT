@@ -2,7 +2,7 @@ Autonomous Navigation of Mobile Robots
 =====
 Introduction
 ------------
-The robot is designed to transport heavy loads within CERN’s radiation facilities, where human presence is hazardous due to high radiation levels. Previously, robots were operated via teleoperation, but it posed several challenges, including operator fatigue, camera latency, and delayed control response. Continuous manual control made it difficult for operators to take breaks, leading to inefficiency and safety concerns. Introducing autonomous navigation allows the robot to operate independently during signal loss or operator absence, improving overall safety, efficiency, and enabling short breaks for human operators.
+The robot is designed to transport heavy loads within CERN radiation facilities, where human presence is hazardous due to high radiation levels. Previously, robots were operated via teleoperation, but it posed several challenges, including operator fatigue, camera latency, and delayed control response. Continuous manual control made it difficult for operators to take breaks, leading to inefficiency and safety concerns. Introducing autonomous navigation allows the robot to operate independently during signal loss or operator absence, improving overall safety, efficiency, and enabling short breaks for human operators.
 
 Robot Description
 ^^^^^^^^^^^^^^^
@@ -11,7 +11,7 @@ At CERN, radiation survey robots are tasked with monitoring and transporting equ
 
 - **LiDAR Sensor**: Used for real-time environment scanning and mapping.
 - **Wheel Odometry**: Provides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
-- **Custom D-Bot Platform**: Initial testing and development were performed on a custom-built D-Bot at Aalto University, with the intention to transfer the solution to CERN’s main robot.
+- **Custom D-Bot Platform**: Initial testing and development were performed on a custom-built D-Bot at Aalto University, with the intention to transfer the solution to CERN main robot.
 
 ROS and Its Libraries
 ----------------
@@ -19,10 +19,12 @@ The robot utilizes the Robot Operating System (ROS) for its software framework, 
 
 .. for images the use slash not backslash is important.
 
-.. image:: /Images/D_Bot_Image.png
+.. figure:: /Images/D_Bot_Image.png
     :alt: D-Bot image
     :width: 400px
     :align: center
+      :figclass: align-center
+      :caption: The Aalto D-Bot used for pathfinding experiments.
 
 Key ROS libraries and packages used include:
 
