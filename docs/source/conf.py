@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Autonomous Navigation of Mobile Robots'
+copyright = '2025, Muhammad Hammad Hussain'
+author = 'Muhammad Hammad Hussain'
 
 release = '0.1'
 version = '0.1.0'
