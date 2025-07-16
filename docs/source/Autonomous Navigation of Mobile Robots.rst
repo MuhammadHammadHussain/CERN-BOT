@@ -24,8 +24,6 @@ The robot utilizes the Robot Operating System (ROS) for its software framework, 
     :width: 400px
     :align: center
 
-**Figure 1.** The Aalto D-Bot used for pathfinding experiments.
-
 Key ROS libraries and packages used include:
 
 - **rviz**: Visualization tool for monitoring robot state, sensor data, and navigation in real time.
