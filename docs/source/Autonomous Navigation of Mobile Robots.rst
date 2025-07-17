@@ -13,10 +13,6 @@ At CERN, radiation survey robots are tasked with monitoring and transporting equ
 - **Wheel Odometry**: Provides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
 - **Custom D-Bot Platform**: Initial testing and development were performed on a custom-built D-Bot at Aalto University, with the intention to transfer the solution to CERN main robot.
 
-ROS and Its Libraries
-----------------
-The robot utilizes the Robot Operating System (ROS) for its software framework, which provides essential libraries and tools for building robot applications. ROS facilitates communication between different components of the robot, enabling efficient data exchange and control.
-
 .. for images the use slash not backslash is important. look if the block is not complete for text you have to give 2 lines spaces to end the bloack.
 
 .. Figure:: /Images/D_Bot_Image.png
@@ -24,8 +20,12 @@ The robot utilizes the Robot Operating System (ROS) for its software framework, 
     :width: 400px
     :align: center
 
-    **Figure 1.**  Aalto DBot.
+    **Figure 1.**  Aalto D-Bot.
 
+
+ROS and Its Libraries
+----------------
+The robot utilizes the Robot Operating System (ROS) for its software framework, which provides essential libraries and tools for building robot applications. ROS facilitates communication between different components of the robot, enabling efficient data exchange and control.
 
 Key ROS libraries and packages used include:
 
