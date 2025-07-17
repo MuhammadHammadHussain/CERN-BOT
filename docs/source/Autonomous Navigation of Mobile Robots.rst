@@ -120,6 +120,20 @@ The following functions are defined within the ROS node classes to facilitate th
 - **publish_path(path)**: Publishes the computed path to a ROS topic.
 - **handle_signal_loss()**: Switches to autonomous mode during communication loss.
 
+Input/Output
+^^^^^^^
+
+Each path planning algorithm is implemented as a ROS node in Python. These nodes subscribe to sensor and goal data and publish computed paths to be followed by the robot. The table below summarizes the inputs and outputs of each node:
+
++------------------+--------------------------------------------+-------------------------------+
+| **Node**         | **Subscribes To**                          | **Publishes To**              |
++==================+============================================+===============================+
+| ``AStarNode``    | ``/map``, ``/initialpose``, ``/goal``      | ``/astar_path``               |
++------------------+--------------------------------------------+-------------------------------+
+| ``DijkstraNode`` | ``/map``, ``/initialpose``, ``/goal``      | ``/dijkstra_path``            |
++------------------+--------------------------------------------+-------------------------------+
+| ``RRTNode``      | ``/map``, ``/initialpose``, ``/goal``      | ``/rrt_path``                 |
++------------------+--------------------------------------------+-------------------------------+
 
 Python Examples
 -----------------
