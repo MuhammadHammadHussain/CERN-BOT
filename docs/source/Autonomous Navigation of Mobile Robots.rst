@@ -17,7 +17,7 @@ ROS and Its Libraries
 ----------------
 The robot utilizes the Robot Operating System (ROS) for its software framework, which provides essential libraries and tools for building robot applications. ROS facilitates communication between different components of the robot, enabling efficient data exchange and control.
 
-.. for images the use slash not backslash is important.
+.. for images the use slash not backslash is important. look if the block is not complete for text you have to give 2 lines spaces to end the bloack.
 
 .. Figure:: /Images/D_Bot_Image.png
     :alt: D Bot image
