@@ -20,11 +20,12 @@ The robot utilizes the Robot Operating System (ROS) for its software framework, 
 .. for images the use slash not backslash is important.
 
 .. Figure:: /Images/D_Bot_Image.png
-    :alt: D-Bot image
+    :alt: D Bot image
     :width: 400px
     :align: center
 
-    **Figure 1.**  Aalto D-Bot.
+    **Figure 1.**  Aalto DBot.
+
 
 Key ROS libraries and packages used include:
 
