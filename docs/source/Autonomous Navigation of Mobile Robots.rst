@@ -11,7 +11,6 @@ At CERN, radiation survey robots are tasked with monitoring and transporting equ
 
 - **LiDAR Sensor**: Used for real-time environment scanning and mapping.
 - **Wheel Odometry**: Provides accurate movement tracking, essential for localization and navigation, especially in signal-degraded environments.
-- **Custom D-Bot Platform**: Initial testing and development were performed on a custom-built D-Bot at Aalto University, with the intention to transfer the solution to CERN main robot.
 
 .. for images the use slash not backslash is important. look if the block is not complete for text you have to give 2 lines spaces to end the bloack.
 
